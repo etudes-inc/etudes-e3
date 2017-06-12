@@ -1,0 +1,279 @@
+{
+	"cdp:status":"0",
+	"sites":
+	[
+		{
+			"title": "SJDC ENG 044E 92325 JD SP11",
+			"siteId": "292929",
+			"presence": "1",
+			"tools":
+			[
+				{"name": "HOME", "tool": "/homepage/homepage"},
+				{"name": "AT&S", "tool": "mneme"}
+			],
+			"visible": "1",
+			"online": "0",
+			"unreadMessages": "0",
+			"unreadPosts": "0",
+			"notVisitAlerts": "3",
+			"instructorPrivileges": "1",
+			"type": "Course",
+			"owner": "Glenn R. Golden",
+			"term": "Fall 2012",
+			"termId": "34",
+			"published": "1",
+			"created": "Aug 1, 2012 4:35 AM"
+		},
+		{
+			"title": "SITE 2",
+			"siteId": "2",
+			"presence": "1",
+			"tools":
+			[
+				{"name": "HOME", "tool": "/homepage/homepage"},
+				{"name": "AT&S", "tool": "mneme"}
+			],
+			"visible": "1",
+			"online": "0",
+			"unreadMessages": "0",
+			"unreadPosts": "0",
+			"notVisitAlerts": "3",
+			"instructorPrivileges": "1",
+			"type": "Course",
+			"owner": "Glenn R. Golden",
+			"term": "Fall 2012",
+			"termId": "34",
+			"published": "1",
+			"created": "Aug 1, 2012 4:35 AM"
+		},
+		{
+			"title": "SITE 4",
+			"siteId": "4",
+			"presence": "1",
+			"tools":
+			[
+				{"name": "AT&S", "tool": "mneme"}
+			],
+			"visible": "1",
+			"online": "1",
+			"unreadMessages": "0",
+			"unreadPosts": "12",
+			"notVisitAlerts": "2",
+			"instructorPrivileges": "1",
+			"type": "Course",
+			"owner": "Glenn R. Golden",
+			"term": "Fall 2012",
+			"termId": "34",
+			"published": "0",
+			"created": "Aug 1, 2012 4:35 AM",
+			"publishOn": "Oct 1, 2012 8:00 AM",
+			"willPublish": "1",
+			"unpublishOn": "Dec 1, 2012 8:00 AM"
+		},
+		{
+			"title": "SITE 6",
+			"siteId": "6",
+			"presence": "1",
+			"tools":
+			[
+				{"name": "AT&S", "tool": "mneme"}
+			],
+			"visible": "1",
+			"online": "1",
+			"unreadMessages": "0",
+			"unreadPosts": "12",
+			"notVisitAlerts": "2",
+			"instructorPrivileges": "1",
+			"type": "Course",
+			"owner": "Glenn R. Golden",
+			"term": "Summer 2012",
+			"termId": "33",
+			"published": "0",
+			"created": "Apr 15, 2012 4:35 AM",
+			"publishOn": "May 1, 2012 8:00 AM",
+			"willPublish": "0",
+			"unpublishOn": "Aug 1, 2012 8:00 AM"
+		},
+		{
+			"title": "SITE 1",
+			"siteId": "1",
+			"presence": "1",
+			"tools":
+			[
+				{"name": "MOTD", "tool": "motd"},
+				{"name": "Welcome", "tool": "content", "title":"WELCOME!", "url":"Gateway/gateway_world.gif", "type":"image/gif"},
+				{"name": "Information", "tool": "content", "title":"INFORMATION", "url":"Gateway/info.html", "type":"text/html"},
+				{"name": "Update", "tool": "content", "title":"UPDATE", "url":"Gateway/update.txt", "type":"text/plain"},
+				{"name": "AT&S", "tool": "mneme"}
+			],
+			"visible": "1",
+			"online": "6",
+			"unreadMessages": "3",
+			"unreadPosts": "2",
+			"notVisitAlerts": "0",
+			"instructorPrivileges": "1",
+			"type": "Course",
+			"owner": "Glenn R. Golden",
+			"term": "Fall 2012",
+			"termId": "34",
+			"published": "1",
+			"created": "Aug 1, 2012 4:35 AM"
+		},
+		{
+			"title": "SITE 3",
+			"siteId": "3",
+			"presence": "1",
+			"tools":
+			[
+				{"name": "AT&S", "tool": "mneme"}
+			],
+			"visible": "1",
+			"online": "1",
+			"unreadMessages": "0",
+			"unreadPosts": "12",
+			"notVisitAlerts": "2",
+			"instructorPrivileges": "0",
+			"type": "Course",
+			"owner": "Vivie Sinou",
+			"term": "Fall 2012",
+			"termId": "34",
+			"published": "0",
+			"publishOn": "Oct 1, 2012 8:00 AM",
+			"willPublish": "1",
+			"unpublishOn": "Dec 1, 2012 8:00 AM",
+			"created": "Aug 1, 2012 4:35 AM"
+		},
+		{
+			"title": "SITE 5",
+			"siteId": "5",
+			"presence": "1",
+			"tools":
+			[
+				{"name": "AT&S", "tool": "mneme"}
+			],
+			"visible": "1",
+			"online": "1",
+			"unreadMessages": "0",
+			"unreadPosts": "12",
+			"notVisitAlerts": "2",
+			"instructorPrivileges": "1",
+			"type": "Course",
+			"owner": "Glenn R. Golden",
+			"term": "Fall 2012",
+			"termId": "34",
+			"published": "1",
+			"created": "Aug 1, 2012 4:35 AM"
+		},
+		{
+			"title": "SITE 7",
+			"siteId": "7",
+			"presence": "1",
+			"tools":
+			[
+				{"name": "AT&S", "tool": "mneme"}
+			],
+			"visible": "1",
+			"online": "1",
+			"unreadMessages": "0",
+			"unreadPosts": "12",
+			"notVisitAlerts": "2",
+			"instructorPrivileges": "1",
+			"type": "Course",
+			"owner": "Glenn R. Golden",
+			"term": "Summer 2012",
+			"termId": "33",
+			"published": "0",
+			"created": "Apr 15, 2012 4:35 AM",
+			"publishOn": "May 1, 2012 8:00 AM",
+			"willPublish": "0",
+			"unpublishOn": "Aug 1, 2012 8:00 AM"
+		},
+		{
+			"title": "SITE 8",
+			"siteId": "8",
+			"presence": "1",
+			"tools":
+			[
+				{"name": "AT&S", "tool": "mneme"}
+			],
+			"visible": "1",
+			"online": "1",
+			"unreadMessages": "0",
+			"unreadPosts": "12",
+			"notVisitAlerts": "2",
+			"instructorPrivileges": "1",
+			"type": "Course",
+			"owner": "Glenn R. Golden",
+			"term": "Summer 2012",
+			"termId": "33",
+			"published": "0",
+			"created": "Apr 15, 2012 4:35 AM",
+			"publishOn": "May 1, 2012 8:00 AM",
+			"willPublish": "0",
+			"unpublishOn": "Aug 1, 2012 8:00 AM"
+		},
+		{
+			"title": "SITE 9",
+			"siteId": "9",
+			"presence": "1",
+			"tools":
+			[
+				{"name": "AT&S", "tool": "mneme"}
+			],
+			"visible": "1",
+			"online": "1",
+			"unreadMessages": "0",
+			"unreadPosts": "12",
+			"notVisitAlerts": "2",
+			"instructorPrivileges": "1",
+			"type": "Course",
+			"owner": "Glenn R. Golden",
+			"term": "Spring 2012",
+			"termId": "32",
+			"published": "0",
+			"created": "Mar 22, 2012 4:35 AM"
+		},
+		{
+			"title": "SITE 10",
+			"siteId": "10",
+			"presence": "1",
+			"tools":
+			[
+				{"name": "AT&S", "tool": "mneme"}
+			],
+			"visible": "1",
+			"online": "1",
+			"unreadMessages": "0",
+			"unreadPosts": "12",
+			"notVisitAlerts": "2",
+			"instructorPrivileges": "0",
+			"type": "Project",
+			"owner": "Vivie Sinou",
+			"term": "Winter 2012",
+			"termId": "31",
+			"published": "0",
+			"created": "Dec 10, 2011 4:35 AM"
+		},
+		{
+			"title": "SITE 11",
+			"siteId": "11",
+			"presence": "1",
+			"tools":
+			[
+				{"name": "AT&S", "tool": "mneme"}
+			],
+			"visible": "1",
+			"online": "3",
+			"unreadMessages": "1",
+			"unreadPosts": "6",
+			"notVisitAlerts": "1",
+			"instructorPrivileges": "0",
+			"type": "Project",
+			"owner": "Vivie Sinou",
+			"term": "Fall 2011",
+			"termId": "30",
+			"published": "0",
+			"created": "Aug 3, 2011 4:35 AM"
+		}
+	]
+}

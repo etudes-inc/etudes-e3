@@ -1,0 +1,18 @@
+{
+	"cdp:status":"0",
+	"sites":
+	[
+		{
+			"title": "Gateway",
+			"siteId": "1",
+			"presence": "0",
+			"tools":
+			[
+				{"name": "MOTD", "tool": "motd"},
+				{"name": "Welcome", "tool": "content", "title":"WELCOME!", "url":"Gateway/gateway_world.gif", "type":"image/gif"},
+				{"name": "Reset Password", "tool": "/resetpw/resetpw", "title":"RESET PASSWORD"},
+				{"name": "Browse Sites", "tool": "/sitebrowser/browsesites", "title":"SITES"}
+			]
+		}
+	]
+}

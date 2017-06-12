@@ -1,0 +1,10 @@
+{
+	"cdp:status":"0",
+	"results":
+	[
+		{"status":"failedInstructor", "role": "Student", "userId": 1, "displayName":"Golden, Glenn R.", "iid":"ggoldeni@etu"},
+		{"status":"failedRegistrar", "role": "Student", "userId": 2, "displayName":"One, Student", "iid":"student1@etu"},
+		{"status":"changed", "role": "Student", "userId": 7, "displayName":"bartholomew@cubbins.org"},
+		{"status":"failed", "role": "Student", "userId": 9, "displayName":"nobody@nowhere.not"}
+	]
+}

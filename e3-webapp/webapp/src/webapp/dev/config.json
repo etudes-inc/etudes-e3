@@ -1,0 +1,25 @@
+{
+	"cdp:status":"0",
+	"config":
+	{
+		"siteId": 1,
+		"skin":"ETUDES",
+		"tools":
+		[
+			{"toolId":"sakai.coursemap", "title":"Coursemap"},
+			{"toolId":"sakai.announcements", "title":"Announcements"},
+			{"toolId":"sakai.syllabus", "title":"Syllabus"}
+		],
+		"baseDate":"Sep 19, 2012",
+		"baseDates":
+		[
+			{"tool":"Announcements", "range":"Sep 19, 2012 - Sep 22, 2012", "outRange":"0"},
+			{"tool":"Modules", "range":"Sep 19, 2012 - Sep 22, 2012", "outRange":"0"},
+			{"tool":"Assignments, Tests and Surveys", "range":"Sep 19, 2012 - Sep 22, 2012", "outRange":"0"},
+			{"tool":"Discussions", "range":"Sep 19, 2012 - Sep 22, 2012", "outRange":"0"}
+		],
+		"published":"0",
+		"pubDate":"Sep 1, 2012",
+		"unpubDate":"Nov 22, 2012"
+	 }
+}

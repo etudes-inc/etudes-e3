@@ -1,0 +1,21 @@
+<script type="text/javascript">
+	tool_obj =
+	{
+		title: "MESSAGE OF THE DAY",
+
+		loadContent: function(url)
+		{
+			$("#motd_content").empty().load(url, function()
+			{
+			});
+		},
+
+		start: function(obj)
+		{
+			setTitle(tool_obj.title);
+			tool_obj.loadContent("Gateway/motd.html");
+		},
+	};
+</script>
+<div id="motd_content">
+</div>

@@ -1,0 +1,59 @@
+/* for hiding the element */
+.hide {
+	visibility: hidden;
+	display: none;
+}
+
+/* placeholder for adding the component */
+.addDndImage {
+	color: #E2E4E8;
+	white-space: nowrap;
+}
+
+/* style for the reorder icon */
+.dndImage {
+	border: 0;
+}
+
+/* style for the combo box */
+.dndCombo {
+	vertical-align: top;
+}
+
+/* for the save button */
+.dndBottomImgSave {
+	padding-left: 2em;
+	background: #eee url('icons/save.png') .2em no-repeat;
+}
+
+/* for the save button */
+.dndBottomImgChatSave {
+	padding-left: 2em;
+	background: #eee url('icons/save.png') .2em no-repeat;
+}
+
+/* for the return button */
+.dndBottomImgReturn {
+	padding-left: 2em;
+	background: #eee url('icons/return.png') .2em no-repeat;
+}
+
+.ambrosiaDivider
+{
+	border: none;
+	padding: 0 0 0 1em;
+	white-space: nowrap;
+}
+
+/* for IE adds table border to the dragging distance */
+.sortTableClass {
+	border-collapse:collapse; 
+	border-spacing:0;
+}
+
+.sortTableClass tr.ui-sortable-helper { display: table; }
+
+/* for IE */
+.sortTablePlaceholder {
+	height: 1px;
+	}

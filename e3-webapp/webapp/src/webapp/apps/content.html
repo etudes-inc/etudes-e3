@@ -1,0 +1,46 @@
+<script type="text/javascript">
+	tool_obj =
+	{
+		title: "",
+
+		loadTextContent: function(url)
+		{
+			$("#content_content").empty().append("<pre id='content_pre' />");
+			$("#content_pre").load(url);
+		},
+
+		loadHtmlContent: function(url)
+		{
+			$("#content_content").empty().load(url);
+		},
+
+		loadImageContent: function(url)
+		{
+			$("#content_content").empty().append("<img src='" + tool.url + "'/>");
+		},
+
+		start: function(obj)
+		{
+			// get the title from the current tool data
+			setTitle(tool.title);
+			
+			// deal with types
+			if (tool.type.indexOf("image/") == 0)
+			{
+				tool_obj.loadImageContent(tool.url);
+			}
+			else if (tool.type.indexOf("text/html") == 0)
+			{
+				// load the URL from the current tool data
+				tool_obj.loadHtmlContent(tool.url);
+			}
+			else if (tool.type.indexOf("text/") == 0)
+			{
+				// load the URL from the current tool data
+				tool_obj.loadTextContent(tool.url);
+			}
+		},
+	};
+</script>
+<div id="content_content">
+</div>

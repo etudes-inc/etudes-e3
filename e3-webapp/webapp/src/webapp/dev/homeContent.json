@@ -1,0 +1,14 @@
+{
+	"cdp:status":"0",
+	"content":
+	[
+		{"contentId": 1, "title": "Welcome", "source": "Web", "type":"text/html", "url":"http://www.apple.com", "release":"Sep 22, 2012 8:00 AM"},
+		{"contentId": 2, "title": "Week One", "source": "Web", "type":"text", "url":"http://www.apple.com", "release":"Oct 22, 2012 8:00 AM"},
+		{"contentId": 3, "title": "The Fun Continues", "source": "Web", "type":"image/gif", "url":"Gateway/gateway_world.gif", "release":"Nov 22, 2012 8:00 AM"},
+		{"contentId": 4, "title": "Winter is Here", "source": "Web", "type":"html", "url":"http://www.apple.com", "release":"Dec 22, 2012 8:00 AM"},
+		{"contentId": 5, "title": "Merry Christmas!", "source": "Authored", "type":"text", "url":"", "release":"Dec 24, 2012 8:00 AM"},
+		{"contentId": 6, "title": "Before You Go", "source": "Resources", "type":"text", "url":"notices/final_notice.png", "release":"Dec 28, 2012 8:00 AM"}
+	],
+	"selected": 3,
+	"announcements":{"display":0, "option":2, "count":5}
+}

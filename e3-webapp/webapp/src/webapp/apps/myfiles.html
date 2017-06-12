@@ -1,0 +1,311 @@
+<script type="text/javascript">
+	tool_obj =
+	{
+		currentMode: 0,
+
+		modeBarElementId: null,
+		modeTitleElementId: null,
+
+		minorModes:
+		[
+			{
+				title: "My Files",
+				element: null,
+				navBarElementId: "myfiles_navbar",
+				toolActionsElementId: "myfiles_actions",
+				toolItemTableElementId: "myfiles_item_table",
+				icon: null,
+				actions:
+				[
+					{title: "Add", icon: "document_add.png", click: function(){alert('add');}, selectRequired: null},
+					{title: "Delete", icon: "delete.png", click: function(){alert('delete');}, selectRequired: "selectFile"},
+					{title: "Move", icon: "lorry.png", click: function(){alert('move');;}, selectRequired: "selectFile"}
+				],
+				headers:
+				[
+					{title: null, type: "checkbox", sort: false, checkboxId: "selectFile"},
+					{title: null, type: "center", sort: false},
+					{title: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title", type: null, sort: true},
+					{title: "Created By", type: null, sort: true},
+					{title: "Created On", type: null, sort: true},
+					{title: "Modified By", type: null, sort: true},
+					{title: "Modified On", type: null, sort: true}
+				],
+				navbar:
+				[
+				],
+				start: function(obj, mode)
+				{
+					obj.populateFiles(obj, obj.files);
+				}
+			}
+		],
+
+		start: function(obj, data)
+		{
+			// $("#myfiles_folders_list").selectable();
+			// $("#myfiles_files_list").selectable({filter:"tr"});
+			
+			setupDrop("myfiles_drop", function(fileList){obj.upload(fileList)});
+			
+			$("#myfiles_progress_bar").progressbar()
+
+			setTitle(this.title);
+			populateToolModes(this);
+			selectMinorMode(0, obj);
+		},
+
+		stop: function(obj, save)
+		{
+		},
+
+		files:
+		[
+			{fileId: 1, type:"section", title:"Global Files"},
+			{fileId: 2, type:"folder", title:"stuff", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:0},
+			{fileId: 3, type:"image/png", title:"rainbow.png", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:1},
+			{fileId: 4, type:"text/html", title:"readme.html", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:1},
+			{fileId: 6, type:"text/plain", title:"instructions.txt", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:0},
+			{fileId: 5, type:"text/pdf", title:"pages.pdf", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:0},
+			{fileId: 7, type:"section", title:"ETU CTI 101 F12"},
+			{fileId: 2, type:"tool", title:"Home", level:0},
+			{fileId: 2, type:"tool", title:"Announcements", level:0},
+			{fileId: 2, type:"tool", title:"Syllabus", level:0},
+			{fileId: 2, type:"tool", title:"Modules", level:0},
+			{fileId: 2, type:"tool", title:"AT&S", level:0},
+			{fileId: 2, type:"tool", title:"Discussions", level:0},
+			{fileId: 2, type:"tool", title:"Resources", level:0},
+			{fileId: 9, type:"text/html", title:"ATS.html", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:0},
+			{fileId: 8, type:"image/png", title:"etudes.png", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:0},
+			{fileId: 10, type:"text/pdf", title:"modules.pdf", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:0},
+			{fileId: 11, type:"section", title:"ETU CTI 150 F12"},
+			{fileId: 11, type:"section", title:"ETU CTI 250 F12"},
+			{fileId: 2, type:"tool", title:"Home", level:0},
+			{fileId: 2, type:"tool", title:"Announcements", level:0},
+			{fileId: 2, type:"tool", title:"Syllabus", level:0},
+			{fileId: 2, type:"tool", title:"Modules", level:0},
+			{fileId: 13, type:"folder", title:"tutorials", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:1},
+			{fileId: 14, type:"text/html", title:"t1.html", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:2},
+			{fileId: 15, type:"text/pdf", title:"t2.pdf", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:2},
+			{fileId: 2, type:"tool", title:"AT&S", level:0},
+			{fileId: 2, type:"tool", title:"Discussions", level:0},
+			{fileId: 2, type:"tool", title:"Resources", level:0},
+			{fileId: 16, type:"folder", title:"images", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:0},
+			{fileId: 17, type:"image/png", title:"checkmark.png", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:1},
+			{fileId: 18, type:"image/png", title:"zoom.png", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:1},
+			{fileId: 12, type:"text/pdf", title:"policy.pdf", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:0},
+			{fileId: 19, type:"section", title:"ETU CTI 300 F12"},
+			{fileId: 2, type:"tool", title:"Home", level:0},
+			{fileId: 2, type:"tool", title:"Announcements", level:0},
+			{fileId: 2, type:"tool", title:"Syllabus", level:0},
+			{fileId: 2, type:"tool", title:"Modules", level:0},
+			{fileId: 2, type:"tool", title:"AT&S", level:0},
+			{fileId: 2, type:"tool", title:"Discussions", level:0},
+			{fileId: 2, type:"tool", title:"Resources", level:0},
+			{fileId: 21, type:"text/pdf", title:"pages.pdf", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:1},
+			{fileId: 22, type:"image/png", title:"rainbow.png", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:1},
+			{fileId: 20, type:"text/html", title:"readme.html", modified:"Sep 22, 2012", created:"Sep 22, 2012", createdBy: "Page Turner", modifiedBy:"Page Turner", level:1}
+		],
+
+		populateFiles: function(obj, files)
+		{
+			$("#myfiles_item_table tbody").empty();
+			// $("#noFiles").addClass("offstage");
+
+			var any = false;
+			$.each(files, function(index, value)
+			{
+				any = true;
+
+				var tr = $("<tr />");
+				if (value.type == "section")
+				{
+					var header = null;
+					if ((index == files.length-1) || (files[index+1].type == "section"))
+					{
+						header = '<img style="vertical-align:text-bottom" src="support/icons/expand.gif" title="expand" />&nbsp;' + value.title;
+					}
+					else
+					{
+						header = '<img style="vertical-align:text-bottom" src="support/icons/collapse.gif" title="collapse" />&nbsp;' + value.title;
+					}
+					var td = createHeaderTd(tr, header);
+					$(td).click(function(){alert("expand/contract");});
+					$("#myfiles_item_table tbody").append(tr);
+					return;
+				}
+
+				$("#myfiles_item_table tbody").append(tr);
+				
+				// select box - not for tool
+				if (value.type != "tool")
+				{
+					createSelectCheckboxTd(obj, tr, "selectFile", value.assessmentId);
+				}
+				else
+				{
+					createEmptyTd(tr);
+				}
+
+				// view - not for tool/folder
+				if ((value.type != "tool") && (value.type != "folder"))
+				{
+					createIconTd(tr, "magnifier.png", "View", function(){alert("view");});
+				}
+				else
+				{
+					createEmptyTd(tr);
+				}
+
+				// level, type and title all together in one hot td
+				var td = $('<td />');
+				$(tr).append(td);
+				for (i=0; i<=value.level; i++)
+				{
+					$(td).append('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+				}
+				// type icon
+				var icon = "generic.gif";
+				if (value.type == "image/png")
+				{
+					icon = "image.gif";
+				}
+				else if (value.type == "text/pdf")
+				{
+					icon = "pdf.gif";
+				}
+				else if (value.type == "text/html")
+				{
+					icon = "html.gif";
+				}
+				else if ((value.type == "folder") || (value.type == "tool"))
+				{
+					if ((index != files.length - 1) && (files[index+1].level > value.level))
+					{
+					// icon = "dir_closed.gif";
+					// icon = "dir_open.gif";
+					// icon = "dir_closedplus.gif";
+						icon = "dir_openminus.gif";
+					}
+					else
+					{
+						icon = "dir_closedplus.gif";
+					}
+				}
+				else if (value.type == "section")
+				{
+					icon = "book.png";
+				}
+
+				if ((value.type == "folder") || (value.type == "tool"))
+				{
+					var iconA = $('<a href />');
+					$(iconA).html('<img style="vertical-align:text-bottom" src="support/icons/' + icon + '" title="' + value.type + '" />');
+					$(iconA).click(function(){alert("expand/contract");return false;});
+					$(td).append(iconA);
+					$(td).append('&nbsp;');
+				}
+				else
+				{
+					var icon = $('<img style="vertical-align:text-bottom" src="support/icons/' + icon + '" title="' + value.type + '" />');
+					$(td).append(icon);
+					$(td).append('&nbsp;');
+				}
+
+				if (value.type != "tool")
+				{					
+					var a = $('<a href />').html(value.title).click(function(){alert('edit');return false;});
+					$(td).append(a);
+				}
+				else
+				{
+					var span = $('<span />').html(value.title);
+					$(td).append(span);
+				}
+
+				// ceated by
+				createTextTd(tr, value.createdBy);
+				
+				// created date
+				createTextTd(tr, value.created);
+				
+				// modified by
+				createTextTd(tr, value.modifiedBy);
+				
+				// modified date
+				createTextTd(tr, value.modified);
+			});
+			
+			if (!any)
+			{
+				// $("#noFiless").removeClass("offstage");
+			}
+			
+			updateSelectStatus(obj, "selectFile");
+		},
+		
+		upload: function(fileList)
+		{
+			$.each(fileList, function(index, file)
+			{
+				var data = new Object();
+				data.file = file;
+				data.destination = "path";
+				//console.log(file.name + " " + file.type + " " + file.size + " " + file.lastModifiedDate);
+				
+				$("#myfiles_progress_name").empty().html(file.name);
+				$("#myfiles_progress_bar").progressbar("option", "value", 0);
+				//$("#myfiles_progress").removeClass("e3_offstage");
+
+				requestCdp("upload", data, function(data)
+				{
+					//$("#myfiles_progress").addClass("e3_offstage");
+				}, "myfiles_progress_bar");
+			});
+		}
+	};
+</script>
+<style type="text/css" media="all">
+#myfiles_progress
+{
+	width:500px;
+	height: 24px;
+	display: table;
+	margin: 8px 0 8px 0;
+}
+#myfiles_progress_bar
+{
+	display: table-cell;
+	width: 200px;
+}
+#myfiles_progress_name
+{
+	text-align: right;
+	padding-right: 8px;
+	font-size: 0.6em;
+	display: table-cell;
+	width: 300px;
+}
+</style>
+
+<!-- just one mode, so here it is - the rest is dialogs -->
+<div class="e3_tool_header">
+	<div class="e3_tool_mode_title" style="background-image:url(support/icons/folder_explore.png)">My Files</div>
+</div>
+
+<div id="myfiles_drop" style="height:200px; width:200px; border:1px solid green;">Drop New Files Here</div>
+<div  id="myfiles_progress">
+	<div id="myfiles_progress_name"></div>
+	<div id="myfiles_progress_bar"></div>
+</div>
+
+<div id="myfiles_actions" class="e3_tool_actions">
+</div>
+<div class="e3_tool_items">
+	<table id="myfiles_item_table" class="e3_tool_item_table">
+		<thead />
+		<tbody />
+	</table>
+</div>
+<div id="myfiles_navbar" class="e3_tool_navbar">
+</div>

@@ -1,0 +1,14 @@
+{
+	"cdp:status":"0",
+	"results":
+	[
+		{"status":"found", "uid": "ggoldeni",  "displayName":"Golden, Glenn R"},
+		{"status":"found", "uid": "student1@etudes.org",  "displayName":"Student One"},
+		{"status":"new", "uid": "student29@etudes.org"},
+		{"status":"new", "uid": "bar@foo.org"},
+		{"status":"member", "uid": "student2",  "displayName":"Student Two"},
+		{"status":"member", "uid": "student3",  "displayName":"Student Three"},
+		{"status":"conflict-email", "uid": "nobody@"},
+		{"status":"conflict-multiple", "uid": "nobody@no.org"}
+	]
+}

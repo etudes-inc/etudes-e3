@@ -1,0 +1,33 @@
+/* set font, assure consistent margin and padding cross browser */
+body
+{
+	font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;
+	margin:0;
+	padding:0;
+}
+
+/* class for sections of html not currently in the view */
+.e3_offstage
+{
+	display: none !important;
+}
+
+a.e3_toolUiLink:link,
+a.e3_toolUiLink:visited,
+a.e3_toolUiLink:hover,
+a.e3_toolUiLink:active,
+a.e3_toolUiLink:focus
+{
+	color: #6066AC !important;
+	text-decoration: none !important;
+}
+
+a.e3_toolUiLinkU:link,
+a.e3_toolUiLinkU:visited,
+a.e3_toolUiLinkU:hover,
+a.e3_toolUiLinkU:active,
+a.e3_toolUiLinkU:focus
+{
+	color: #6066AC !important;
+	text-decoration: underline !important;
+}

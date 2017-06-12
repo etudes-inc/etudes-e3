@@ -1,0 +1,10 @@
+{
+	"cdp:status":"0",
+	"results":
+	[
+		{"status":"failedInstructor", "userId": 1, "displayName":"Golden, Glenn R.", "iid":"ggoldeni@etu"},
+		{"status":"already", "userId": 2, "displayName":"One, Student", "iid":"student1@etu"},
+		{"status":"blocked", "userId": 7, "displayName":"bartholomew@cubbins.org"},
+		{"status":"failed", "userId": 9, "displayName":"nobody@nowhere.not"}
+	]
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<link href="support/custom-theme/jquery-ui-1.8.24.custom.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="support/dialog.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="support/tool.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="support/portal.css" type="text/css" rel="stylesheet" media="all" />
+		<link href="support/etudes.css" type="text/css" rel="stylesheet" media="all" />
+		<script type="text/javascript" src="support/jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" src="support/jquery-ui-1.8.24.custom.min.js"></script>
+		<script type="text/javascript" src="support/jquery-ui-timepicker-addon.js"></script>
+		<script type="text/javascript" src="support/jquery.form.js"></script>
+		<script type="text/javascript" src="support/jquery.tablesorter.min.js"></script>
+ 		<script type="text/javascript" src="/Users/ggolden/server/tomcat/webapps/ckeditor/ckeditor/ckeditor.js"></script>
+		<script type="text/javascript" src="support/moment.min.js"></script>
+		<script type="text/javascript" src="support/etudes.js"></script>
+		<script type="text/javascript" src="support/e3portal.js"></script>
+		<link href="support/jquery-ui-timepicker-addon.css" type="text/css" rel="stylesheet" media="all" />
+		<script type="text/javascript">
+		</script>
+		<style type="text/css">
+		</style>
+		<title>Etudes SITE TITLE</title>
+	</head>
+	<body>
+		<div class="e3_portal_header">
+			<div class="e3_portal_header_logo"><img src="support/icons/logo_inst.gif"></div>
+			<div class="e3_portal_header_banner"><img src="support/icons/banner_inst.gif"></div>
+			<div class="e3_portal_header_info">
+				<div id="e3_header_loggedin" class="e3_portal_header_loggedin e3_offstage">
+					<div class="e3_portal_header_loggedinas">Logged in as:&nbsp;<span id="e3_header_loggedinas" class="e3_portal_header_loggedinas_name"></span><a id="e3_header_link_logout">Logout</a></div>
+					<div class="e3_portal_header_links">
+						<a id="e3_header_link_dashboard" class="e3_portal_header_link">Dashboard</a>
+						<a id="e3_header_link_mysites" class="e3_portal_header_link">My Sites</a>
+						<a id="e3_header_link_myfiles" class="e3_portal_header_link">My Files</a>
+						<a id="e3_header_link_account" class="e3_portal_header_link">Account</a>
+						<a id="e3_header_link_prefs" class="e3_portal_header_link">Preferences</a>
+						<a id="e3_header_link_search" class="e3_portal_header_link">Search</a>
+						<a id="e3_header_link_help" target="_blank" href="http://etudes.org/help">Help</a>
+					</div>
+				</div>
+				<div id="e3_header_loggedout" class="e3_portal_header_loggedout e3_offstage">
+					<form id="e3_header_loggedout_form" method="post" encType="multipart/form-data">
+						user id:
+						<input id="e3_login_userid" name="userid" type="text" />
+						password:
+						<input id="e3_login_password" name="password" type="password" />
+						<input type="submit" value="Login" class="e3_header_login" />
+					</form>
+				</div>
+				<div id="e3_header_login_waiting" class="e3_offstage">
+					Please wait ...
+				</div>
+			</div>
+		</div>
+		<div class="e3_portal_site_nav">
+			<ul id="e3_site_nav_list">
+			</ul>
+		</div>
+		<div class="e3_portal_center">
+			<div id="e3_left_side" class="e3_portal_left_side">
+				<div id="e3_unpublished_site" class="e3_portal_unpublished_site e3_offstage">
+					Closed Site
+				</div>
+				<div class="e3_portal_tool_nav">
+					<ul id="e3_tool_nav_list">
+					</ul>
+				</div>
+				<div id="e3_presence" class="e3_portal_presence">
+				</div>
+			</div>
+			<div class="e3_portal_tool">
+				<div class="e3_portal_tool_title_frame">
+					<div id="e3_tool_title_text" class="e3_portal_tool_title_text">
+					</div>
+					<div class="e3_portal_tool_title_right">
+						<a id="e3_tool_configure" href="" class="e3_portal_tool_configure e3_offstage" alt="Configure" title="Configure">&nbsp;</a>
+					</div>
+				</div>
+				<div id="e3_tool_body" class="e3_portal_tool_body">e3_offstage
+				</div>
+			</div>
+		</div>
+		<div class="e3_portal_footer">
+			<div class="e3_portal_footer_links">
+				|
+				<a href="/portal/site/!gateway">Gateway</a> | 
+				<a href="http://etudes.org/"target="_blank">Etudes</a> | 
+				<a href="/access/content/public/etudes_code_conduct.htm" target="_blank">Conduct Policy</a> | 
+				<a href="/access/content/public/etudes_privacy_statement.htm" target="_blank">Privacy Statement</a> | 
+			</div>
+			<div class="e3_portal_footer_info">
+				&copy; 2008, 2009, 2010, 2011, 2012 Etudes, Inc. All rights reserved.<br />
+				EtudesPrototype - dev
+			</div>
+		</div>
+		<div id="e3_authenticationFailure" title="Invalid Login">
+			<div class="e3_dialog_instructions e3_wide">Invalid user id or password.</div>
+			<div class="e3_configure_step">
+				If you continue to have trouble logging in to Etudes
+				<a href="https://myetudes.org/access/content/public/login_help.htm" target="_blank" title="View Login Help">Get Help</a>
+			</div>
+		</div>
+		<div id="e3_unpublishedSiteAlert" title="Site Unavailable">
+			<div class="e3_dialog_instructions e3_wide">This site is not currently open.</div>
+		</div>
+		<div id="e3_cdp">
+		</div>
+	</body>
+</html>

@@ -1,0 +1,14 @@
+{
+	"cdp:status":"0",
+	"presence":
+	[
+		{"name":"Glenn R. Golden", "userId":"1", "chat":"0"},
+		{"name":"Vivie Sinou", "userId":"2", "chat":"1"},
+		{"name":"Murthy Tanniru", "userId":"3", "chat":"1"},
+		{"name":"Rashmi Maheshwari", "userId":"4", "chat":"0"},
+		{"name":"Mallika Thoppay", "userId":"5", "chat":"1"},
+		{"name":"Marlene Wilkendorf", "userId":"6", "chat":"1"},
+		{"name":"Jim The Big Man Marteney", "userId":"7", "chat":"1"},
+		{"name":"Wendy Bass Keer", "userId":"8", "chat":"0"}
+	]
+}

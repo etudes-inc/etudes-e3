@@ -1,0 +1,13 @@
+{
+	"cdp:status":"0",
+	"members":
+	[
+		{"userId": 1, "role":"Instructor", "displayName":"Golden, Glenn R.", "status":"0", "iid":"ggoldeni@etu"},
+		{"userId": 2, "role":"Student", "displayName":"One, Student", "status":"1", "iid":"student1@etu"},
+		{"userId": 3, "role":"Student", "displayName":"Two, Student", "status":"0", "iid":"student2@etu"},
+		{"userId": 4, "role":"Student", "displayName":"Three, Student", "status":"4", "iid":"student3@etu"},
+		{"userId": 5, "role":"Student", "displayName":"Four, Student", "status":"2", "iid":"student4@etu"},
+		{"userId": 6, "role":"Guest", "displayName":"Sinou, Vivie", "status":"3", "iid":"vivie@etu"},
+		{"userId": 7, "role":"Student", "displayName":"bartholomew@cubbins.org", "status":"3"}
+	]
+}

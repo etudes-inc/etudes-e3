@@ -1,0 +1,366 @@
+/* e3 portal.css */
+
+/* *** */
+/* overall layout: header, site nav, center, footer */
+
+/* for the stuff at the top */
+.e3_portal_header
+{
+	height:84px;
+	background: #730416 url(icons/headback.gif) repeat-x;
+}
+
+/* for the div holding the site list */
+.e3_portal_site_nav
+{
+	background: #730416;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+/* the left side with tool nav and presence, and the right side tool area */
+.e3_portal_center
+{
+	display: table;
+	width: 100%;
+}
+
+/* for the footer stuff */
+.e3_portal_footer
+{
+	color: #000;
+	margin: 1em 0;
+	font-size: 10px;
+	text-align: center;
+}
+
+/* *** */
+/* header details */
+
+.e3_portal_header_logo
+{
+	float: left;
+}
+.e3_portal_header_banner
+{
+	float: left;
+}
+.e3_portal_header_info
+{
+	float: right;
+	margin-top: 0px;
+	margin-right:20px;
+	font-size: 13px;
+}
+.e3_portal_header_loggedin
+{
+}
+.e3_portal_header_loggedout
+{
+	margin-top: 40px;
+	color: #730416;
+}
+.e3_portal_header_loggedinas
+{
+	margin-top: 8px;
+	color: #191970;
+	text-align: right;	
+}
+.e3_portal_header_loggedinas_name
+{
+	font-weight: bold;
+	margin-right: 8px;
+	padding-right: 12px;
+	border-right: 1px solid #730416;
+}
+.e3_portal_header_info a,
+.e3_portal_header_info a:link,
+.e3_portal_header_info a:visited
+{
+	color: #730416;
+	text-decoration: none;
+}
+.e3_portal_header_info a:hover
+{
+	color: #0000B0;
+}
+.e3_portal_header_login
+{
+	color: #730416;
+}
+.e3_portal_header_links
+{
+	margin-top:20px;
+	text-align: right;
+	color: #730416;
+}
+.e3_portal_header_link
+{
+	margin-right: 8px;
+	padding-right: 12px;
+	border-right: 1px solid #730416;
+}
+.e3_portal_header_link_icon
+{
+	padding-left: 24px;
+	background-position: center left;
+	background-repeat: no-repeat;
+	margin-right: 25px;
+}
+
+/* *** */
+/* site nav details */
+
+/* for the list holding the site choices */
+.e3_portal_site_nav ul
+{
+	font-size: 13px;
+	
+	/* replace the UL's normal margin and padding */
+	margin: 0px 0px 0px 24px;
+	padding: 0px;
+}
+.e3_portal_site_nav li
+{
+	/* display items across, instead of down */
+	display: inline;
+	
+	/* assure some height for the list */
+	line-height: 2em;
+}
+.e3_portal_site_nav li a,
+.e3_portal_site_nav li a:link,
+.e3_portal_site_nav li a:visited
+{
+	color: #fff;
+	padding: 2px 6px 2px 4px;
+	text-decoration: none;
+	border-right: 1px solid #fff;
+}
+.e3_portal_site_nav li a.site_selected,
+.e3_portal_site_nav li a.site_selected:link,
+.e3_portal_site_nav li a.site_selected:visited,
+.e3_portal_site_nav li a.site_selected:hover
+{
+	color: #730416;
+	cursor: default;
+	font-weight: bold;
+	text-decoration: none;
+	background:#fff;
+	padding: 3px 6px 12px 4px;
+	margin: 0 0 0 4px;
+}
+.e3_portal_site_nav li a.site_unpublished,
+.e3_portal_site_nav li a.site_unpublished:link,
+.e3_portal_site_nav li a.site_unpublished:visited,
+.e3_portal_site_nav li a.site_unpublished:hover
+{
+	color: #B8B8B8;
+}
+
+.e3_portal_site_nav li a:hover
+{
+	color: #F4E10C;
+	text-decoration: none;
+}
+
+/* *** */
+/* center structure: left side and tool area */
+
+/* for the div holding the tool list, presence, on the left in the center */
+.e3_portal_left_side
+{
+	display: table-cell;
+	width: 8.5em;
+	vertical-align:top;
+	padding: 8px 4px 0 8px;
+}
+
+/* for the div holding the tool area, on the right in the center */
+.e3_portal_tool
+{
+	display: table-cell;
+	vertical-align:top;
+	padding: 8px 16px 0px 16px;
+}
+.e3_old_portal_tool
+{	
+}
+
+/* *** */
+/* left side details */
+
+/* indicating an unpublished site */
+.e3_portal_unpublished_site
+{
+	font-size: 13px;
+	color: #191970;
+	font-weight: bold;
+	padding-left: 24px;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-position: 4px 50%;
+	background-repeat: no-repeat;
+	background-image: url(icons/closed.gif);
+	margin-bottom: 1em;
+	border: 5px double #730416;
+}
+
+/* for the div holding the tool choices */
+.e3_portal_tool_nav
+{
+	font-size: 13px;
+}
+
+/* for the list holding the tool choices */
+.e3_portal_tool_nav ul
+{
+	/* the list has the top border, the choices have the other three */
+	border-top: 1px solid #90A1C6;
+
+	/* remove any li bullets */
+	list-style: none;
+	
+	/* cancel the UL's left side padding (normally for the bullets) and margin */
+	padding-left: 0;
+	margin: 0;
+	
+	/* center the text */
+	text-align: center;
+}
+
+/* for the tool choice items */
+.e3_portal_tool_nav li
+{
+	/* open-top box border for each item - the top is the item above, or the UL for the first item */ 
+	border-right: 1px solid #90A1C6;
+	border-left: 1px solid #90A1C6;
+	border-bottom: 1px solid #90A1C6;
+}
+
+/* for those items not selected - style the links */
+.e3_portal_tool_nav li a
+{
+	display: block;
+	text-decoration: none;
+	color: #5A6D95;
+	background: #F5F4F4;
+	padding: 4px;
+}
+.e3_portal_tool_nav li a:hover
+{
+	background: #E7EAF1;
+}
+.e3_portal_tool_nav li a.tool_selected
+{
+	background: #730416;
+	color: #fff;
+	cursor: default;
+}
+.e3_portal_tool_nav li a.tool_selected:hover
+{
+	color: #F4E10C;
+	cursor: default;
+}
+
+/* for presence */
+.e3_portal_presence
+{
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+
+/* *** */
+/* tool area details */
+
+.e3_portal_tool_body
+{
+	padding: 8px;
+	border: 1px solid #90A1C6;
+}
+
+.e3_portal_tool_title_frame
+{
+	background:url(icons/titlecenter.gif) top left repeat-x;
+	height:22px;
+	overflow:hidden;
+}
+.e3_portal_tool_title_text
+{
+	background:url(icons/titleleft.gif) top left no-repeat;
+	padding: 4px 0 0 20px;
+	height:22px;
+	float: left;
+	color:#52698C;
+	font: normal bold 13px Arial,sans-serif;
+}
+.e3_portal_tool_title_right
+{
+	padding: 2px 16px 6px 2px;
+	height:22px;
+	background:url(icons/titleright.gif) top right no-repeat;
+	float: right;
+	color:#52698C;
+	font: normal bold 13px Arial,sans-serif;
+}
+.e3_portal_tool_configure
+{
+	background:url(icons/gear-edit.png) right top no-repeat;
+	float: right;
+	padding-right: 20px;
+}
+.e3_portal_tool_loading
+{
+	background:url(icons/lorry_flatbed.png) left top no-repeat;
+	float: right;
+	padding-left: 20px;
+	padding-right: 80px;
+	font-size: 10px;
+	font-style: italic;
+	text-align: center;
+	vertical-align:middle;
+}
+a.e3_portal_tool_configure:link,
+a.e3_portal_tool_configure:visited,
+a.e3_portal_tool_configure:hover,
+a.e3_portal_tool_configure:active,
+a.e3_portal_tool_configure:focus
+{
+	color: #6066AC !important;
+	text-decoration: none !important;
+}
+
+/* *** */
+/* footer details */
+
+/* for the footer stuff */
+.e3_portal_footer
+{
+	color: #000;
+	margin: 12px 0;
+	font-size: 10px;
+	text-align: center;
+}
+
+/* for the links in the footer */
+.e3_portal_footer_links
+{
+	padding-top: 6px;
+	padding-bottom: 6px;
+	background:#730416;
+	color: #fff;
+}
+.e3_portal_footer_links a,
+.e3_portal_footer_links a:link,
+.e3_portal_footer_links a:visited
+{
+	color: #fff;
+	text-decoration: none;
+}
+
+/* for the text in the bottom of the footer */
+.e3_portal_footer_info
+{
+	margin-top: 24px;
+}
+

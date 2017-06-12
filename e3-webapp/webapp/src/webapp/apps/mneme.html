@@ -1,0 +1,463 @@
+<script type="text/javascript">
+	tool_obj =
+	{
+		title: "ASSIGNMENTS, TESTS AND SURVEYS",
+
+		currentMode: 0,
+
+		modeBarElementId: "mneme_mode_bar",
+		modeTitleElementId: "mneme_mode_title",
+
+		modes:
+		[
+			{
+				title: "Assessments",
+				element: null,
+				navBarElementId: "mneme_navbar",
+				toolActionsElementId: "mneme_actions",
+				toolItemTableElementId: "mneme_item_table",
+				icon: "folder_page.png",
+				actions:
+				[
+					{title: "Add", icon: "document_add.png", click: function(){alert('add');}, selectRequired: null},
+					{title: "Delete", icon: "delete.png", click: function(){tool_obj.deleteAssessments();}, selectRequired: "selectAssessment"},
+					{title: "Publish", icon: "publish.png", click: function(){tool_obj.publishAssessments();}, selectRequired: "selectAssessment"},
+					{title: "Unpublish", icon: "publish_rmv.png", click: function(){tool_obj.unpublishAssessments();}, selectRequired: "selectAssessment"},
+					{title: "Archive", icon: "make_inactive.png", click: function(){tool_obj.archiveAssessments();}, selectRequired: "selectAssessment"},
+					{title: "Restore", icon: "restore.png", click: function(){alert('restore');}, selectRequired: null},
+					{title: "Import", icon: "import_assessment.png", click: function(){alert('import');}, selectRequired: null}
+				],
+				headers:
+				[
+					{title: null, type: "checkbox", sort: false, checkboxId: "selectAssessment"},
+					{title: "Type", type: "center", sort: true},
+					{title: "Title", type: null, sort: true},
+					{title: "Open Date", type: null, sort: true},
+					{title: "Due Date", type: null, sort: true},
+					{title: "Allow Until", type: null, sort: false},
+					{title: "Publish", type: "center", sort: true},
+					{title: null, type: "center", sort: false},
+					{title: "", type: "center", sort: false}
+				],
+				navbar:
+				[
+					{title: "Save", icon: "save.png", access: "s", popup: "Save Dates", click: function(){tool_obj.saveDates();}}
+				],
+				start: function(obj, mode)
+				{
+					obj.loadAssessments();
+				}
+			},
+			{
+				title: "Question Pools",
+				element: null,
+				navBarElementId: "mneme_navbar",
+				toolActionsElementId: "mneme_actions",
+				toolItemTableElementId: "mneme_item_table",
+				icon: "basket_add.png",
+				actions:
+				[
+					{title: "Add Pool", icon: "document_add.png", click: function(){alert('add pool');}, selectRequired: null},
+					{title: "Combine", icon: "combine_pools.png", click: function(){alert('combine');}, selectRequired: "selectPool"},
+					{title: "Delete", icon: "delete.png", click: function(){alert('delete');}, selectRequired: "selectPool"},
+					{title: "Import", icon: "import_export.png", click: function(){alert('import');}, selectRequired: null}
+				],
+				headers:
+				[
+					{title: null, type: "checkbox", sort: false, checkboxId: "selectPool"},
+					{title: "Pool", type: null, sort: true},
+					{title: "Description", type: null, sort: false},
+					{title: "Questions", type: null, sort: false},
+					{title: "Points", type: null, sort: false},
+					{title: "Difficulty", type: null, sort: false},
+					{title: "Edit", type: "center", sort: false},
+					{title: "", type: "center", sort: false}
+				],
+				navbar: [],
+				start: function(obj, mode)
+				{
+					obj.loadPools();
+				}
+			},
+			{
+				title: "Grading",
+				element: null,
+				navBarElementId: null,
+				toolActionsElementId: null,
+				toolItemTableElementId: null,
+				icon: "grade.png",
+				actions: [],
+				headers: [],
+				navbar: [],
+				start: function(obj, mode)
+				{
+					alert('gr');
+				}
+			},
+			{
+				title: "Test Drive",
+				element: null,
+				navBarElementId: null,
+				toolActionsElementId: null,
+				toolItemTableElementId: null,
+				icon: "test_drive.png",
+				actions:[],
+				headers: [],
+				navbar: [],
+				start: function(obj, mode)
+				{
+					alert('td');
+				}
+			}
+		],
+
+		populateAssessments: function(assessments)
+		{
+			$("#mneme_item_table tbody").empty();
+			$("#noPools").addClass("offstage");
+			$("#noAssessments").addClass("offstage");
+
+			var any = false;
+			$.each(assessments, function(index, value)
+			{
+				any = true;
+
+				var tr = $("<tr />");
+				$("#mneme_item_table tbody").append(tr);
+				
+				// select box
+				createSelectCheckboxTd(tool_obj, tr, "selectAssessment", value.assessmentId);
+
+				// type icon
+				if (value.type == "test")
+				{
+					createIconTd(tr, "test_view.png", "View Test");
+				}
+				else if (value.type == "assignment")
+				{
+					createIconTd(tr, "assignment_view.png", "View Assignment");
+				}
+				else if (value.type == "survey")
+				{
+					createIconTd(tr, "survey_view.png", "View Survey");
+				}
+				
+				// title
+				createHotTd(tr, value.title, function(){alert(value.assessmentId);});
+
+				// open date
+				createDateEditTd(tr, value.open, "Select Open Date", "openDate", value.assessmentId);
+				
+				// due date
+				createDateEditTd(tr, value.due, "Select Due Date", "dueDate", value.assessmentId);
+
+				// allow until date
+				createDateEditTd(tr, value.allow, "Select Allow Until Date", "allowDate", value.assessmentId);
+
+				// publish
+				if (value.published == "1")
+				{
+					createIconTd(tr, "publish_ok.png", "Set Options");
+				}
+				else
+				{
+					createIconTd(tr, "settings.png", "Publish");
+				}
+
+				// special access
+				if (value.specialAccess == "0")
+				{
+					createIconTd(tr, "access_add.png", "Add Special Access");
+				}
+				else
+				{
+					createIconTd(tr, "access_view.png", "Edit Special Access");
+				}
+
+				// duplicate
+				createIconTd(tr, "page_copy.png", "Duplicate Assessment");
+			});
+			
+			if (!any)
+			{
+				$("#noAssessments").removeClass("offstage");
+			}
+			
+			updateSelectStatus(tool_obj, "selectAssessment");
+		},
+
+		loadAssessments: function()
+		{
+			clearSelectAll("selectAssessment");
+			requestCdp("assessments", null, function(data)
+			{
+				tool_obj.populateAssessments(data.assessments);
+			});
+		},
+
+		populatePools: function(pools)
+		{
+			$("#mneme_item_table tbody").empty();
+			$("#noPools").addClass("offstage");
+			$("#noAssessments").addClass("offstage");
+
+			var any = false;
+			$.each(pools, function(index, value)
+			{
+				any = true;
+
+				var tr = $("<tr />");
+				$("#mneme_item_table tbody").append(tr);
+				
+				// select box
+				createSelectCheckboxTd(tool_obj, tr, "selectPool", value.poolId);
+				
+				// title
+				createHotTd(tr, value.title, function(){alert(value.poolId);});
+
+				// description
+				createTextTd(tr, value.description);
+
+				// questions
+				createTextTd(tr, value.questions);
+				
+				// points
+				createTextTd(tr, value.points);
+
+				// difficulty
+				createTextTd(tr, value.difficulty);
+
+				// edit
+				createIconTd(tr, "gear-edit.png", "Edit Pool");
+
+				// duplicate
+				createIconTd(tr, "page_copy.png", "Duplicate Pool");
+			});
+
+			if (!any)
+			{
+				$("#noPools").removeClass("offstage");
+			}
+
+			updateSelectStatus(tool_obj, "selectPool");
+		},
+
+		loadPools: function()
+		{
+			requestCdp("pools", null, function(data)
+			{
+				tool_obj.populatePools(data.pools);
+			});
+		},
+
+		saveDates: function()
+		{
+			// collect data - assessment ids and dates
+			var data = new Object();
+			data.openDates = "";
+			data.dueDates = "";
+			data.allowDates = "";
+
+			$("*#openDate").each(function(index)
+			{
+				data.openDates += $(this).attr("oid") + "=" + $(this).val() + "\t";
+			});
+			$("*#dueDate").each(function(index)
+			{
+				data.dueDates += $(this).attr("oid") + "=" + $(this).val() + "\t";
+			});
+			$("*#allowDate").each(function(index)
+			{
+				data.allowDates += $(this).attr("oid") + "=" + $(this).val() + "\t";
+			});
+			
+			requestCdp("postAssessmentDates", data, function(data)
+			{
+				// TODO:
+				alert("done posting dates");
+			});
+		},
+
+		deleteAssessments: function()
+		{
+			if (anyOidsSelected("selectAssessment"))
+			{
+				// confirm
+				$("#confirmDelete").dialog('open');
+			}
+			
+			else
+			{
+				// instruct
+				$("#alertSelect").dialog("open");
+			}
+		},
+		
+		publishAssessments: function()
+		{
+			if (anyOidsSelected("selectAssessment"))
+			{
+				// confirm
+				$("#confirmPublish").dialog('open');
+			}
+			
+			else
+			{
+				// instruct
+				$("#alertSelect").dialog("open");
+			}
+		},
+
+		unpublishAssessments: function()
+		{
+			if (anyOidsSelected("selectAssessment"))
+			{
+				// confirm
+				$("#confirmUnpublish").dialog('open');
+			}
+			
+			else
+			{
+				// instruct
+				$("#alertSelect").dialog("open");
+			}
+		},
+
+		archiveAssessments: function()
+		{
+			if (anyOidsSelected("selectAssessment"))
+			{
+				// confirm
+				$("#confirmArchive").dialog('open');
+			}
+			
+			else
+			{
+				// instruct
+				$("#alertSelect").dialog("open");
+			}
+		},
+
+		doDelete: function()
+		{
+			// get ids selected
+			var data = new Object();
+			data.assessmentIds = collectSelectedOids("selectAssessment");
+			
+			// if any selected
+			if (data.assessmentIds.length > 0)
+			{
+				requestCdp("deleteAssessments", data, function(data)
+				{
+					// reload the assessments
+					tool_obj.loadAssessments();
+				});
+			}
+		},
+
+		doPublish: function()
+		{
+			// get ids selected
+			var data = new Object();
+			data.assessmentIds = collectSelectedOids("selectAssessment");
+			
+			// if any selected
+			if (data.assessmentIds.length > 0)
+			{
+				requestCdp("publishAssessments", data, function(data)
+				{
+					// reload the assessments
+					tool_obj.loadAssessments();
+				});
+			}
+		},
+
+		doUnpublish: function()
+		{
+			// get ids selected
+			var data = new Object();
+			data.assessmentIds = collectSelectedOids("selectAssessment");
+			
+			// if any selected
+			if (data.assessmentIds.length > 0)
+			{
+				requestCdp("unpublishAssessments", data, function(data)
+				{
+					// reload the assessments
+					tool_obj.loadAssessments();
+				});
+			}
+		},
+
+		doArchive: function()
+		{
+			// get ids selected
+			var data = new Object();
+			data.assessmentIds = collectSelectedOids("selectAssessment");
+			
+			// if any selected
+			if (data.assessmentIds.length > 0)
+			{
+				requestCdp("archiveAssessments", data, function(data)
+				{
+					// reload the assessments
+					tool_obj.loadAssessments();
+				});
+			}
+		},
+
+		start: function(obj)
+		{
+			setTitle(this.title);
+			populateToolModes(this);
+			setupConfirm("confirmDelete", "Delete", function(){tool_obj.doDelete();});
+			setupConfirm("confirmPublish", "Publish", function(){tool_obj.doPublish();});
+			setupConfirm("confirmUnpublish", "Unpublish", function(){tool_obj.doUnpublish();});
+			setupConfirm("confirmArchive", "Archive", function(){tool_obj.doArchive();});
+			setupAlert("alertSelect");
+		}
+	};
+</script>
+<style type="text/css" media="all">
+</style>
+<div id="mneme_mode_bar" class="e3_tool_mode_bar">
+</div>
+<div class="e3_tool_header">
+	<div id="mneme_mode_title" class="e3_tool_mode_title"></div>
+</div>
+<div id="mneme_content">
+	<div id="mneme_actions" class="e3_tool_actions">
+	</div>
+	<div class="e3_tool_items">
+		<table id="mneme_item_table" class="e3_tool_item_table">
+			<thead />
+			<tbody />
+		</table>
+		<div id="noAssessments" class="e3_offstage e3_emptyWarning">
+			No Assessments are defined
+		</div>
+		<div id="noPools" class="e3_offstage e3_emptyWarning">
+			No Pools are defined
+		</div>
+	</div>
+	<div id="mneme_navbar" class="e3_tool_navbar">
+	</div>
+</div>
+<div id="confirmDelete" title="Confirm Delete">
+Are you sure you want to delete the selected assessments?
+</div>
+<div id="confirmPublish" title="Confirm Publish">
+Published assessments <b>cannot</b> have questions added or removed.<br />
+Are you sure you are ready to publish?
+</div>
+<div id="confirmUnpublish" title="Confirm Unpublish">
+This makes assessments unavailable for submission and grading, and removes them from the gradebook, until republished.<br />
+Are you sure you want to unpublish these assessments?
+</div>
+<div id="confirmArchive" title="Confirm Archive">
+Archiving makes assessments completely unavailable. You may restore them at any time.<br />
+Are you sure you want to archive the selected assessments?
+</div>
+<div id="alertSelect" title="First Select Assessments">
+You must first select some assessments, using the check boxes.
+</div>

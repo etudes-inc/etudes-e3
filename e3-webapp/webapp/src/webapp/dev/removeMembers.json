@@ -1,0 +1,12 @@
+{
+	"cdp:status":"0",
+	"results":
+	[
+		{"status":"failedInstructor", "userId": 1, "displayName":"Golden, Glenn R.", "iid":"ggoldeni@etu"},
+		{"status":"blocked", "userId": 2, "displayName":"One, Student", "iid":"student1@etu"},
+		{"status":"blocked", "userId": 3, "displayName":"Two, Student", "iid":"student2@etu"},
+		{"status":"blocked", "userId": 4, "displayName":"Three, Student", "iid":"student3@etu"},
+		{"status":"removed", "userId": 7, "displayName":"bartholomew@cubbins.org"},
+		{"status":"failed", "userId": 9, "displayName":"nobody@nowhere.not"}
+	]
+}

@@ -1,0 +1,18 @@
+{
+	"cdp:status":"0",
+	"results":
+	[
+		{
+			"itemId": "1",
+			"title": "result one"
+		},
+		{
+			"itemId": "2",
+			"title": "result two"
+		},
+		{
+			"itemId": "3",
+			"title": "result three"
+		}
+	]
+}

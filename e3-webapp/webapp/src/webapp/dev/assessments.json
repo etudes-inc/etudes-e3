@@ -1,0 +1,13 @@
+{
+	"cdp:status":"0",
+	"assessments":
+	[
+		{"assessmentId": 1, "type":"test", "title":"S1 Chapter 1 Quiz", "open":"", "due":"", "allow":"", "published":"1", "specialAccess":"0"},
+		{"assessmentId": 2, "type":"test", "title":"Chapter 2 Quiz", "open":"", "due":"", "allow":"", "published":"1", "specialAccess":"0"},
+		{"assessmentId": 3, "type":"test", "title":"Chapter 3 Quiz", "open":"", "due":"", "allow":"", "published":"0", "specialAccess":"0"},
+		{"assessmentId": 4, "type":"assignment", "title":"Assignment 1", "open":"", "due":"", "allow":"", "published":"0", "specialAccess":"1"},
+		{"assessmentId": 5, "type":"test", "title":"Chapter 4 Quiz", "open":"", "due":"", "allow":"", "published":"0", "specialAccess":"0"},
+		{"assessmentId": 6, "type":"test", "title":"Chapter 5 Quiz", "open":"", "due":"", "allow":"", "published":"0", "specialAccess":"0"},
+		{"assessmentId": 7, "type":"survey", "title":"Class Survey", "open":"", "due":"", "allow":"", "published":"0", "specialAccess":"0"}
+	]
+}

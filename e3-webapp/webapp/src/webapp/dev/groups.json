@@ -1,0 +1,9 @@
+{
+	"cdp:status":"0",
+	"groups":
+	[
+		{"groupId": 1, "size":"2", "title":"Group One", "description":"a group", "members":[{"userId":"2"},{"userId":"3"}]},
+		{"groupId": 2, "size":"2", "title":"Group Two", "description":"another group", "members":[{"userId":"4"},{"userId":"5"}]},
+		{"groupId": 3, "size":"1", "title":"Group Three", "description":"that group", "members":[{"userId":"6"}]}
+	]
+}

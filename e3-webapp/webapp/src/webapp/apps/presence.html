@@ -1,0 +1,81 @@
+<script type="text/javascript">
+	presence_obj =
+	{
+		title: "Site Presence",
+
+		start: function()
+		{
+			presence_obj.loadPresence();
+		},
+
+		loadPresence: function(siteId)
+		{
+			requestCdp("presence", null, function(data)
+			{
+				$.each(data.presence, function(index, value)
+				{
+					var li = $('<li>' + value.name + '</li>');
+					if (value.chat == "1")
+					{
+						$(li).addClass("chat");
+					}
+					$("#presence_list").append(li);
+				});
+			});
+		}
+	};
+</script>
+<style type="text/css" media="all">
+#presence_header
+{
+	font-size: 70%;
+	text-align: center;
+	color: #90A1C6;
+}
+
+/* for the div holding the tool choices */
+#presence_tool
+{
+	/* smaller text */
+	font-size: 70%;
+	height: 10em;
+
+	/* restrict to the box, with scrolling */
+	overflow: auto;
+	
+	/* line border */
+	border: 1px solid #90A1C6;
+}
+
+/* for the list holding the presence items */
+#presence_tool ul
+{
+	/* remove any li bullets */
+	list-style: none;
+	
+	/* cancel the UL's left side padding (normally for the bullets) */
+	padding-left: 0px;
+	
+	/* and the top margin */
+	margin: 4px;
+}
+
+/* for the presence items */
+#presence_tool li
+{
+	/* making some room for the in-chat icon */
+	padding: 0 0 0 .7em;
+	margin-bottom: .2em;
+}
+
+/* for the presence items showing as in chat */
+#presence_tool li.chat
+{
+	background: url(support/icons/present.gif) -.1em center no-repeat;
+}
+</style>
+<div id="presence_header">Users Present</div>
+<div id="presence_tool">
+	<ul id="presence_list">
+	</ul>
+</div>

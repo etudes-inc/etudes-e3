@@ -1,0 +1,94 @@
+<script type="text/javascript">
+	tool_obj =
+	{
+		title: "SEARCH",
+
+		start: function(obj, data)
+		{
+			setTitle(obj.title);
+
+			$("#search_go").unbind("click").click(function(){obj.search(obj);return false;});
+
+			userSites.load(force, function()
+			{
+				userSites.byTerm();
+			});
+
+			requestCdp("sites", data, function(rv)
+			{
+				obj.loadSearchResults(obj, rv.results);
+			});
+		},
+
+		stop: function(obj, save)
+		{
+		},
+		
+		search: function(obj)
+		{
+			var data = new Object();
+			data.siteId = $("#search_site").val();
+			data.toolId = $("#search_tool").val();
+			data.query = $("#search_query").val();
+			requestCdp("search", data, function(rv)
+			{
+				obj.loadSearchResults(obj, rv.results);
+			});
+		},
+		
+		loadSearchResults: function(obj, results)
+		{
+			$("#search_results_list").empty();
+			$.each(results, function(index, value)
+			{
+				var li = $('<li />').attr('id', value.itemId).html(value.title + "<br /><span style='font-size:small'>(" + value.itemId + ")</span>");
+				$("#search_results_list").append(li);
+			});
+
+			adjustForNewHeight();
+		}
+	};
+</script>
+<style type="text/css" media="all">
+</style>
+
+<!-- just one mode, so here it is - the rest is dialogs -->
+<div class="e3_tool_header">
+	<div class="e3_tool_mode_title" style="background-image:url(support/icons/user_enrolled.png)">Search</div>
+</div>
+
+<div style="display:table; width: 100%;">
+	<div style="display:table-row">
+		<div style="display:table-cell; width:48%;">
+
+			<div class="e3_configurationFeature_body">
+				<div class="e3_configure_set">
+					<div class="e3_configure_set_row">
+						<div class="e3_configure_set_entry_header">Site:</div>
+						<div class="e3_configure_set_entry_field"><input id="search_site" type="text" size="80" /></div>
+					</div>
+					<div class="e3_configure_set_row">
+						<div class="e3_configure_set_entry_header">Tool:</div>
+						<div class="e3_configure_set_entry_field"><input id="search_tool" type="text" size="80" /></div>
+					</div>
+					<div class="e3_configure_set_row">
+						<div class="e3_configure_set_entry_header">Query:</div>
+						<div class="e3_configure_set_entry_field"><input id="search_query" type="text" size="80" /></div>
+					</div>
+				</div>
+				<input type="button" id="search_go" value="go" />
+			</div>
+
+		</div>
+		<div style="display:table-cell; width:4%;">&nbsp;</div>
+		<div style="display:table-cell; width:48%;">
+
+			<div class="e3_configurationFeature_body">
+				<ul id="search_results_list"></ul>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div id="search_navbar" class="e3_tool_navbar">&nbsp;</div>
